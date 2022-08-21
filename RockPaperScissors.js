@@ -1,10 +1,12 @@
 // randomly chooses a string from the array
 
-function getComputerChoice(arr){
+const arr = ["rock", "paper", "scissors"];
+
+function getComputerChoice(arr) {
   return arr[Math.floor(Math.random() * arr.length)];
 }
 
-// console.log(getComputerChoice(["rock","paper","scissor"]))
+console.log(getComputerChoice(["rock","paper","scissors"]))
 
 // ask the player for their selection
 
@@ -13,5 +15,21 @@ function playerChoice() {
   return player.toLowerCase();
 }
 
-// console.log(playerChoice())
+console.log(playerChoice())
+
+// rock paper scissors game function - player vs computer
+
+function playRound() {
+  const playerRound = playerChoice();
+  const computerRound = getComputerChoice(arr);
+  if (playerRound == "rock" && computerRound == "scissors") {
+    winner = "Congratulations you won!";
+    console.log(winner);}
+    else {
+      console.log("loser");
+
+  }
+}
+
+playRound()
 
