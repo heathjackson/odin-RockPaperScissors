@@ -5,6 +5,7 @@ const arr = ["rock", "paper", "scissors"];
 // let computerSelection = getComputerChoice(arr);
 
 // repeat game 5 times
+
 let playerScore = 0;
 let computerScore = 0;
 
@@ -21,10 +22,21 @@ function game() {
     else if (round === "lose") {
       computerScore += 1;
     }
-
+    else if (round === "wrongChoice") {
+      console.log("wrong choice");
+      return game();
+    }
   console.log("player =", playerScore);
   console.log("computer =", computerScore);
-
+  }
+  if (playerScore > computerScore) {
+    console.log("you win");
+  }
+  else if (playerScore < computerScore) {
+    console.log("you lose");
+  }
+  else if (playerscore === computerScore) {
+    console.log("you tie");
   }
 }
 
