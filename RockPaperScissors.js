@@ -13,34 +13,43 @@ function game() {
   for (i = 0; i < 5; i++) {
     let playerSelection = playerChoice();
     let computerSelection = getComputerChoice(arr);
-    console.log("You chose", playerSelection);
-    console.log("The computer chose", computerSelection);
+    // console.log("You chose", playerSelection);
+    // console.log("The computer chose", computerSelection);
     round = playRound(playerSelection, computerSelection);
     if (round === "win") {
       playerScore += 1;
+      console.log("You WON this round! You chose " + playerSelection + "," + " and the computer chose " + computerSelection + ".");
     }
     else if (round === "lose") {
       computerScore += 1;
+      console.log("You LOST this round. You chose " + playerSelection + "," + " and the computer chose " + computerSelection + ".");
+    }
+    else if (round === "tie") {
+      console.log("You TIED this round. You chose " + playerSelection + "," + " and the computer chose " + computerSelection + ".");
     }
     else if (round === "wrongChoice") {
-      console.log("wrong choice");
-      return game();
+      console.log("You need to choose rock, paper, or scissors");
+      i--;
     }
   console.log("player =", playerScore);
   console.log("computer =", computerScore);
   }
   if (playerScore > computerScore) {
-    console.log("you win");
+    console.log("You are the winner, winner, chicken dinner of the game!!!!");
   }
   else if (playerScore < computerScore) {
-    console.log("you lose");
+    console.log("YOU LOST THE GAME SUCKA");
   }
-  else if (playerscore === computerScore) {
-    console.log("you tie");
+  else if (playerScore === computerScore) {
+    console.log("You tied...wa wa");
   }
 }
 
 game()
+
+// FUNCTIONS USED //
+
+// Plays one round of Rock, Paper, Scissors //
 
 function playRound(playerSelection, computerSelection) {
     if (playerSelection !== "rock" && playerSelection !== "paper" && playerSelection !== "scissors") {
@@ -57,26 +66,16 @@ function playRound(playerSelection, computerSelection) {
     }
   }
 
-// console.log("You chose", playerSelection);
-// console.log("The computer chose", computerSelection);
-// console.log(playRound(playerSelection, computerSelection));
-
-
 // randomly chooses a string from the array
 
 function getComputerChoice(arr) {
   return arr[Math.floor(Math.random() * arr.length)];
 }
 
-// console.log(getComputerChoice(["rock","paper","scissors"]))
 
-// ask the player for their selection
+// asks the player for their selection
 
 function playerChoice() {
   let player = prompt("Please choose rock, paper, or scissors");
   return player.toLowerCase();
 }
-
-// console.log(playerChoice())
-
-// game()
