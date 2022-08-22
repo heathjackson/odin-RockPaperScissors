@@ -1,29 +1,34 @@
-// randomly chooses a string from the array
 
-const arr = ["rock", "paper", "scissors"];
 
 // rock paper scissors game function - player vs computer
 
-function playRound() {
-  const playerRound = playerChoice();
-  console.log("your choice", "=", playerRound);
-  const computerRound = getComputerChoice(arr);
-  console.log("computer choice", "=", computerRound);
-    if (!(playerRound == "rock" || playerRound == "paper" || playerRound == "scissors")) {
-      console.log("Please choose rock, paper, or scissors")
-    }
-    else if (playerRound == computerRound) {
-      console.log("It's a tie!");
-    }
-    else if ((playerRound == "rock" && computerRound == "scissors") || (playerRound == "paper" && computerRound == "rock") || (playerRound == "scissors" && computerRound == "paper")) {
-      console.log("Congratulations you won!");}
-    else {
-      console.log("loser");
+const arr = ["rock", "paper", "scissors"];
+const playerSelection = playerChoice();
+const computerSelection = getComputerChoice(arr)
 
-      }
+function playRound(playerSelection, computerSelection) {
+    if (playerSelection !== "rock" && playerSelection !== "paper" && playerSelection !== "scissors") {
+      return playerSelection = "wrongChoice";
+    }
+    else if (playerSelection === computerSelection) {
+      return playerSelection = "tie";
+    }
+    else if ((playerSelection === "rock" && computerSelection === "scissors") || (playerSelection === "paper" && computerSelection === "rock") || (playerSelection === "scissors" && computerSelection === "paper")) {
+      return playerSelection = "win";
+    }
+    else {
+      return playerSelection = "lose";
+    }
 }
 
-playRound()
+console.log("You chose", playerSelection);
+console.log("The computer chose", computerSelection);
+console.log(playRound(playerSelection, computerSelection));
+
+
+// randomly chooses a string from the array
+
+
 
 function getComputerChoice(arr) {
   return arr[Math.floor(Math.random() * arr.length)];
