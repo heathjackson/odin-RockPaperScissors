@@ -4,17 +4,31 @@ const arr = ["rock", "paper", "scissors"];
 // let playerSelection = playerChoice();
 // let computerSelection = getComputerChoice(arr);
 
+// repeat game 5 times
+let playerScore = 0;
+let computerScore = 0;
+
 function game() {
   for (i = 0; i < 5; i++) {
     let playerSelection = playerChoice();
     let computerSelection = getComputerChoice(arr);
     console.log("You chose", playerSelection);
     console.log("The computer chose", computerSelection);
-    console.log(playRound(playerSelection, computerSelection));
+    round = playRound(playerSelection, computerSelection);
+    if (round === "win") {
+      playerScore += 1;
+    }
+    else if (round === "lose") {
+      computerScore += 1;
+    }
+
+  console.log("player =", playerScore);
+  console.log("computer =", computerScore);
+
   }
 }
 
-
+game()
 
 function playRound(playerSelection, computerSelection) {
     if (playerSelection !== "rock" && playerSelection !== "paper" && playerSelection !== "scissors") {
@@ -29,7 +43,7 @@ function playRound(playerSelection, computerSelection) {
     else {
       return playerSelection = "lose";
     }
-}
+  }
 
 // console.log("You chose", playerSelection);
 // console.log("The computer chose", computerSelection);
@@ -37,8 +51,6 @@ function playRound(playerSelection, computerSelection) {
 
 
 // randomly chooses a string from the array
-
-
 
 function getComputerChoice(arr) {
   return arr[Math.floor(Math.random() * arr.length)];
@@ -55,4 +67,4 @@ function playerChoice() {
 
 // console.log(playerChoice())
 
-game()
+// game()
