@@ -4,13 +4,17 @@ const arr = ["rock", "paper", "scissors"];
 // let playerSelection = playerChoice();
 // let computerSelection = getComputerChoice(arr);
 
-for (i = 0; i < 5; i++) {
-  let playerSelection = playerChoice();
-  let computerSelection = getComputerChoice(arr);
-  console.log("You chose", playerSelection);
-  console.log("The computer chose", computerSelection);
-  console.log(playRound(playerSelection, computerSelection));
+function game() {
+  for (i = 0; i < 5; i++) {
+    let playerSelection = playerChoice();
+    let computerSelection = getComputerChoice(arr);
+    console.log("You chose", playerSelection);
+    console.log("The computer chose", computerSelection);
+    console.log(playRound(playerSelection, computerSelection));
+  }
 }
+
+
 
 function playRound(playerSelection, computerSelection) {
     if (playerSelection !== "rock" && playerSelection !== "paper" && playerSelection !== "scissors") {
@@ -50,3 +54,5 @@ function playerChoice() {
 }
 
 // console.log(playerChoice())
+
+game()
