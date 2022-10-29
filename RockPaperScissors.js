@@ -1,8 +1,8 @@
 // rock paper scissors game function - player vs computer
 
 const arr = ["rock", "paper", "scissors"];
-// let playerSelection = playerChoice();
-// let computerSelection = getComputerChoice(arr);
+let playerSelection = playerChoice();
+let computerSelection = getComputerChoice(arr);
 
 // repeat game 5 times
 
@@ -79,3 +79,19 @@ function playerChoice() {
   let player = prompt("Please choose rock, paper, or scissors");
   return player.toLowerCase();
 }
+
+const rock = document.querySelector('#rock');
+rock.addEventListener('click', () => {
+  alert("Hello Rock");
+});
+
+const paper = document.querySelector('#paper');
+paper.addEventListener('click', () => {
+  alert("Hello Paper");
+});
+
+const scissors = document.querySelector('#scissors');
+scissors.addEventListener('click', () => {
+  alert("Hello Scissors");
+});
+
