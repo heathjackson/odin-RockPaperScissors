@@ -27,9 +27,22 @@ function game(playerChoice) {
       console.log("You need to choose rock, paper, or scissors");
       i--;
     }
-  console.log("player =", playerScore);
-  console.log("computer =", computerScore);
-  
+  const container = document.querySelector('#container');
+
+  const playerTotal = document.createElement('div');
+  playerTotal.classList.add('playerTotal');
+  playerTotal.textContent = `Your score is ${playerScore}`;
+
+  container.appendChild(playerTotal);
+
+  const computerTotal = document.createElement('div');
+  computerTotal.classList.add('computerTotal');
+  computerTotal.textContent = `The computer's score is ${computerScore}`;
+
+  container.appendChild(computerTotal);
+  // console.log("player =", playerScore);
+  // console.log("computer =", computerScore);
+
   if (playerScore > computerScore) {
     console.log("You are the winner, winner, chicken dinner of the game!!!!");
   }
