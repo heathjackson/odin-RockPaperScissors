@@ -5,6 +5,20 @@
 let playerScore = 0;
 let computerScore = 0;
 
+const container = document.querySelector('#container');
+
+const playerTotal = document.createElement('div');
+playerTotal.classList.add('playerTotal');
+playerTotal.textContent = `Your score is ${playerScore}`;
+
+container.appendChild(playerTotal);
+
+const computerTotal = document.createElement('div');
+computerTotal.classList.add('computerTotal');
+computerTotal.textContent = `The computer's score is ${computerScore}`;
+
+container.appendChild(computerTotal);
+
 const arr = ["rock", "paper", "scissors"];
 
 
@@ -28,14 +42,16 @@ scissors.addEventListener('click', () => {
 
 function game(playerChoice) {
     let computerSelection = getComputerChoice(arr);
-    // console.log("You chose", playerSelection);
-    // console.log("The computer chose", computerSelection);
-    round = playRound(playerChoice, computerSelection);
+
     if (playerScore === 5 || computerScore === 5) {
       endGame();
       return;
     }
-    else if (round === "win") {
+    // console.log("You chose", playerSelection);
+    // console.log("The computer chose", computerSelection);
+    round = playRound(playerChoice, computerSelection);
+   
+    if (round === "win") {
       playerScore += 1;
       console.log("You WON this round! You chose " + playerChoice + "," + " and the computer chose " + computerSelection + ".");
     }
@@ -46,35 +62,27 @@ function game(playerChoice) {
     else {
       console.log("You TIED this round. You chose " + playerChoice + "," + " and the computer chose " + computerSelection + ".");
     }
-
-    //each score is tallied on the website
-    const container = document.querySelector('#container');
-
-    const playerTotal = document.createElement('div');
-    playerTotal.classList.add('playerTotal');
     playerTotal.textContent = `Your score is ${playerScore}`;
-
-    container.appendChild(playerTotal);
-
-    const computerTotal = document.createElement('div');
-    computerTotal.classList.add('computerTotal');
     computerTotal.textContent = `The computer's score is ${computerScore}`;
 
-    container.appendChild(computerTotal);}
+    if (playerScore === 5 || computerScore === 5) {
+      endGame();
+      return;
+    }
+  }
+
     
   
   // console.log("player =", playerScore);
   // console.log("computer =", computerScore);
-function endGame(playerScore, computerScore) {
+function endGame() {
     if (playerScore > computerScore) {
-      console.log("You are the winner, winner, chicken dinner of the game!!!!");
+      alert("You are the winner, winner, chicken dinner of the game!!!!");
     }
-    else if (playerScore < computerScore) {
-      console.log("YOU LOST THE GAME SUCKA");
+    else {
+      alert("YOU LOST THE GAME SUCKA");
     }
-    else if (playerScore === computerScore) {
-      console.log("You tied...wa wa");
-    }}
+  }
 
 // FUNCTIONS USED //
 
@@ -101,7 +109,6 @@ function getComputerChoice(arr) {
   return arr[Math.floor(Math.random() * arr.length)];
 }
 
-
 // asks the player for their selection
 
 // function playerChoice() {
@@ -110,7 +117,7 @@ function getComputerChoice(arr) {
 // }
 
 
-
-
+ //each score is tallied on the website
+ 
 
 
