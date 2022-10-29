@@ -1,18 +1,41 @@
 // rock paper scissors game function - player vs computer
 
-const arr = ["rock", "paper", "scissors"];
 
-// repeat game 5 times
 
 let playerScore = 0;
 let computerScore = 0;
+
+const arr = ["rock", "paper", "scissors"];
+
+
+// makes the button and the website connect correctly and 
+// connects them to the game function
+const rock = document.querySelector('#rock');
+rock.addEventListener('click', () => {
+  game('rock');
+});
+
+const paper = document.querySelector('#paper');
+paper.addEventListener('click', () => {
+  game('paper');
+});
+
+const scissors = document.querySelector('#scissors');
+scissors.addEventListener('click', () => {
+  game('scissors');
+});
+
 
 function game(playerChoice) {
     let computerSelection = getComputerChoice(arr);
     // console.log("You chose", playerSelection);
     // console.log("The computer chose", computerSelection);
     round = playRound(playerChoice, computerSelection);
-    if (round === "win") {
+    if (playerScore === 5 || computerScore === 5) {
+      endGame();
+      return;
+    }
+    else if (round === "win") {
       playerScore += 1;
       console.log("You WON this round! You chose " + playerChoice + "," + " and the computer chose " + computerSelection + ".");
     }
@@ -20,39 +43,39 @@ function game(playerChoice) {
       computerScore += 1;
       console.log("You LOST this round. You chose " + playerChoice + "," + " and the computer chose " + computerSelection + ".");
     }
-    else if (round === "tie") {
+    else {
       console.log("You TIED this round. You chose " + playerChoice + "," + " and the computer chose " + computerSelection + ".");
     }
-    else if (round === "wrongChoice") {
-      console.log("You need to choose rock, paper, or scissors");
-      i--;
-    }
-  const container = document.querySelector('#container');
 
-  const playerTotal = document.createElement('div');
-  playerTotal.classList.add('playerTotal');
-  playerTotal.textContent = `Your score is ${playerScore}`;
+    //each score is tallied on the website
+    const container = document.querySelector('#container');
 
-  container.appendChild(playerTotal);
+    const playerTotal = document.createElement('div');
+    playerTotal.classList.add('playerTotal');
+    playerTotal.textContent = `Your score is ${playerScore}`;
 
-  const computerTotal = document.createElement('div');
-  computerTotal.classList.add('computerTotal');
-  computerTotal.textContent = `The computer's score is ${computerScore}`;
+    container.appendChild(playerTotal);
 
-  container.appendChild(computerTotal);
+    const computerTotal = document.createElement('div');
+    computerTotal.classList.add('computerTotal');
+    computerTotal.textContent = `The computer's score is ${computerScore}`;
+
+    container.appendChild(computerTotal);}
+    
+  
   // console.log("player =", playerScore);
   // console.log("computer =", computerScore);
+function endGame(playerScore, computerScore) {
+    if (playerScore > computerScore) {
+      console.log("You are the winner, winner, chicken dinner of the game!!!!");
+    }
+    else if (playerScore < computerScore) {
+      console.log("YOU LOST THE GAME SUCKA");
+    }
+    else if (playerScore === computerScore) {
+      console.log("You tied...wa wa");
+    }}
 
-  if (playerScore > computerScore) {
-    console.log("You are the winner, winner, chicken dinner of the game!!!!");
-  }
-  else if (playerScore < computerScore) {
-    console.log("YOU LOST THE GAME SUCKA");
-  }
-  else if (playerScore === computerScore) {
-    console.log("You tied...wa wa");
-  }
-}
 // FUNCTIONS USED //
 
 // Plays one round of Rock, Paper, Scissors //
@@ -86,18 +109,8 @@ function getComputerChoice(arr) {
 //   return player.toLowerCase();
 // }
 
-const rock = document.querySelector('#rock');
-rock.addEventListener('click', () => {
-  game('rock');
-});
 
-const paper = document.querySelector('#paper');
-paper.addEventListener('click', () => {
-  game('paper');
-});
 
-const scissors = document.querySelector('#scissors');
-scissors.addEventListener('click', () => {
-  game('scissors');
-});
+
+
 
