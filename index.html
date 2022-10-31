@@ -5,14 +5,19 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="RockPaperScissors.js" defer></script>
+  <link rel="stylesheet" href="style.css">
   <title>Rock Paper Scissors</title>
 </head>
 <body>
-  <div id="controls">
-    <button id="rock">ROCK</button>
-    <button id="paper">PAPER</button>
-    <button id="scissors">SCISSORS</button>
+  <div class="container header">
+    <div class="title">It's time to RUMBLE</div>
+    <div class="directions">Choose Rock, Paper, or Scissors first one to five wins!</div>
   </div>
-  <div id="container"></div>
+  <div class="container playButtons">
+    <button id="rock"></button>
+    <button id="paper"></button>
+    <button id="scissors"></button>
+  </div>
+  <div id="scores"></div>
 </body>
 </html>

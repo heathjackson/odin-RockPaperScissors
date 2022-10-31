@@ -5,19 +5,19 @@
 let playerScore = 0;
 let computerScore = 0;
 
-const container = document.querySelector('#container');
+const scores = document.querySelector('#scores');
 
 const playerTotal = document.createElement('div');
 playerTotal.classList.add('playerTotal');
 playerTotal.textContent = `Your score is ${playerScore}`;
 
-container.appendChild(playerTotal);
+scores.appendChild(playerTotal);
 
 const computerTotal = document.createElement('div');
 computerTotal.classList.add('computerTotal');
 computerTotal.textContent = `The computer's score is ${computerScore}`;
 
-container.appendChild(computerTotal);
+scores.appendChild(computerTotal);
 
 const arr = ["rock", "paper", "scissors"];
 

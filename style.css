@@ -1,0 +1,64 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.container {
+  display: flex;
+}
+
+.header {
+  color: #fff;
+  background-color: #008b8b;
+  padding: 20px 0;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title {
+  font-size: 28pt;
+}
+
+/* button {
+    background-color: #4CAF50; /* Green
+    border: none;
+    color: white;
+    padding: 32px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+  } */
+
+.playButtons {
+  justify-content: space-around;
+}
+
+#rock {
+  background-image: url("Images/rock.png");
+  background-size: 100px 130px;
+  height: 134px;  
+  width: 104px;
+  margin: 40px;
+  margin-right: 0px;
+}
+
+#paper {
+  background-image: url("Images/paper.png");
+  background-size: 100px 130px;
+  height: 134px;  
+  width: 104px;
+  margin: 40px;
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+#scissors {
+  background-image: url("Images/scissors.png");
+  background-size: 100px 130px;
+  height: 134px;  
+  width: 104px;
+  margin: 40px;
+  margin-left: 0px;
+}
