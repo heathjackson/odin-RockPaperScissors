@@ -1,6 +1,7 @@
 // rock paper scissors game function - player vs computer
 let playerScore = 0;
 let computerScore = 0;
+let roundNumber = 0;
 
 const scores = document.querySelector('#scores');
 
@@ -15,6 +16,8 @@ computerTotal.classList.add('computerTotal');
 computerTotal.textContent = `The computer's score is ${computerScore}`;
 
 scores.appendChild(computerTotal);
+
+const bothChoices = document.querySelector('#bothChoices');
 
 const arr = ["rock", "paper", "scissors"];
 
@@ -50,9 +53,12 @@ function game(playerChoice) {
   // console.log("You chose", playerSelection);
   // console.log("The computer chose", computerSelection);
   let round = playRound(playerChoice, computerSelection);
+
+  roundNumber += 1;
   
   if (round === "win") {
     playerScore += 1;
+
     console.log("You WON this round! You chose " + playerChoice + "," + " and the computer chose " + computerSelection + ".");
   }
   else if (round === "lose") {
@@ -65,6 +71,18 @@ function game(playerChoice) {
 
   playerTotal.textContent = `YOUR SCORE = ${playerScore}`;
   computerTotal.textContent = `COMPUTER'S SCORE = ${computerScore}`;
+  
+  const both = document.createElement('div');
+  both.classList.add('both');
+
+  const rounds = document.createElement('div')
+  rounds.classList.add('rounds');
+
+  rounds.textContent = `Round ${roundNumber}`;
+  both.textContent = `you chose ${playerChoice} and the computer chose ${computerSelection}`;
+
+  bothChoices.appendChild(rounds);
+  bothChoices.appendChild(both);
 
   if (playerScore === 5 || computerScore === 5) {
     endGame();
@@ -77,21 +95,17 @@ function game(playerChoice) {
 function sound() {
   var snd = new Audio('sounds/click.m4a')//wav is also supported
   snd.play()//plays the sound
-  return;
 }
   
 //alert when the game is over
 
 function endGame() {
-  if ((playerScore === 5 || computerScore === 5) && (playerScore > computerScore)) {
+  if (playerScore > computerScore) {
       alert("You are the winner, winner, chicken dinner of the game!!!!");
-      return;
   }
-
   else {
       alert("YOU LOST THE GAME SUCKA");
-      return;
-    }
+  }
 }
 // Plays one round of Rock, Paper, Scissors //
 
