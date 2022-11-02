@@ -38,11 +38,6 @@ button {
   margin: 20px;
 }
 
-/* #gameButton {
-  justify-content: center;
-  align-items: center; 
-} */
-
 #rock {
   background-image: url("Images/rock.png");
   background-size: 100px 130px;
@@ -83,6 +78,3 @@ button {
   height: 134px;
 }
 
-#gameButton {
-  justify-content: center;
-}
