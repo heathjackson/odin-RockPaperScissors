@@ -68,12 +68,7 @@
   margin: 40px;
 }
 
-#bothChoices {
+.roundsChoices {
   flex-direction: column;
   align-items: center;
-}
-
-.rounds {
-  font-weight: bold;
-  margin: 10px;
 }

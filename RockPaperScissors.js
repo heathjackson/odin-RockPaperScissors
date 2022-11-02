@@ -17,7 +17,8 @@ computerTotal.textContent = `COMPUTER'S SCORE = ${computerScore}`;
 
 scores.appendChild(computerTotal);
 
-const bothChoices = document.querySelector('#bothChoices');
+const rounds = document.querySelector('.rounds');
+const bothChoices = document.querySelector('.bothChoices');
 
 const arr = ["rock", "paper", "scissors"];
 
@@ -42,6 +43,10 @@ scissors.addEventListener('click', () => {
   sound();
   game('scissors')
 })
+
+
+// const both = document.createElement('div');
+// both.classList.add('both');
 
 function game(playerChoice) {
   if (playerScore === 5 || computerScore === 5) {
@@ -72,22 +77,13 @@ function game(playerChoice) {
   playerTotal.textContent = `YOUR SCORE = ${playerScore}`;
   computerTotal.textContent = `COMPUTER'S SCORE = ${computerScore}`;
   
-  const both = document.createElement('p');
-  both.classList.add('both');
-
-  const rounds = document.createElement('div')
-  rounds.classList.add('rounds');
-
   rounds.textContent = `Round ${roundNumber}`;
-  both.textContent = `you chose ${playerChoice} and the computer chose ${computerSelection}`;
+  bothChoices.textContent = `you chose ${playerChoice} and the computer chose ${computerSelection}`;
 
-  bothChoices.appendChild(rounds); 
-  bothChoices.appendChild(both);
-
-  // if (playerScore === 5 || computerScore === 5) {
-  //   endGame();
+  if (playerScore === 5 || computerScore === 5) {
+    endGame();
+  }
 }
-
 
 //*********************** FUNCTIONS USED ******************************//   
 //makes the click sound when the button is pushed
@@ -101,10 +97,12 @@ function sound() {
 
 function endGame() {
   if (playerScore > computerScore) {
-      alert("You are the winner, winner, chicken dinner of the game!!!!");
+    rounds.textContent = '';
+    bothChoices.textContent = 'You are the winner, winner, chicken dinner of the game!!!!';
   }
   else {
-      alert("YOU LOST THE GAME SUCKA");
+    rounds.textContent = '';
+    bothChoices.textContent = 'YOU LOST THE GAME SUCKA';
   }
 }
 // Plays one round of Rock, Paper, Scissors //
