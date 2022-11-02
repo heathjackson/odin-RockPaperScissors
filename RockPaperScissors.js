@@ -7,13 +7,13 @@ const scores = document.querySelector('#scores');
 
 const playerTotal = document.createElement('div');
 playerTotal.classList.add('playerTotal');
-playerTotal.textContent = `Your score is ${playerScore}`;
+playerTotal.textContent = `YOUR SCORE = ${playerScore}`;
 
 scores.appendChild(playerTotal);
 
 const computerTotal = document.createElement('div');
 computerTotal.classList.add('computerTotal');
-computerTotal.textContent = `The computer's score is ${computerScore}`;
+computerTotal.textContent = `COMPUTER'S SCORE = ${computerScore}`;
 
 scores.appendChild(computerTotal);
 
@@ -72,7 +72,7 @@ function game(playerChoice) {
   playerTotal.textContent = `YOUR SCORE = ${playerScore}`;
   computerTotal.textContent = `COMPUTER'S SCORE = ${computerScore}`;
   
-  const both = document.createElement('div');
+  const both = document.createElement('p');
   both.classList.add('both');
 
   const rounds = document.createElement('div')
@@ -81,13 +81,13 @@ function game(playerChoice) {
   rounds.textContent = `Round ${roundNumber}`;
   both.textContent = `you chose ${playerChoice} and the computer chose ${computerSelection}`;
 
-  bothChoices.appendChild(rounds);
+  bothChoices.appendChild(rounds); 
   bothChoices.appendChild(both);
 
-  if (playerScore === 5 || computerScore === 5) {
-    endGame();
-  }
+  // if (playerScore === 5 || computerScore === 5) {
+  //   endGame();
 }
+
 
 //*********************** FUNCTIONS USED ******************************//   
 //makes the click sound when the button is pushed
