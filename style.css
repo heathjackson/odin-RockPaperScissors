@@ -20,20 +20,28 @@
   font-size: 28pt;
 }
 
-/* button {
-    background-color: #4CAF50; /* Green
-    border: none;
+button {
+    background-color: #4CAF50; /* Green*/
+    border-width: thin;
+    border-color: black;
     color: white;
     padding: 32px 32px;
+    margin: 30px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
-  } */
-
-.playButtons {
-  justify-content: space-around;
 }
+
+#playButtons {
+  justify-content: space-evenly;
+  margin: 20px;
+}
+
+/* #gameButton {
+  justify-content: center;
+  align-items: center; 
+} */
 
 #rock {
   background-image: url("Images/rock.png");
@@ -71,4 +79,10 @@
 .roundsChoices {
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  height: 134px;
+}
+
+#gameButton {
+  justify-content: center;
 }

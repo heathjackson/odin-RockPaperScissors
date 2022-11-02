@@ -3,6 +3,8 @@ let playerScore = 0;
 let computerScore = 0;
 let roundNumber = 0;
 
+// creats score board
+
 const scores = document.querySelector('#scores');
 
 const playerTotal = document.createElement('div');
@@ -17,13 +19,18 @@ computerTotal.textContent = `COMPUTER'S SCORE = ${computerScore}`;
 
 scores.appendChild(computerTotal);
 
+// constants to create the text that says what the player chose vs the computer
+
 const rounds = document.querySelector('.rounds');
 const bothChoices = document.querySelector('.bothChoices');
+const result = document.querySelector('.result');
+
+// used to create an array so the computer can randomly choose 
 
 const arr = ["rock", "paper", "scissors"];
 
 
-// makes the button and the website connect correctly and 
+// makes the button and UI connect correctly and 
 // connects them to the game function
 
 const rock = document.querySelector('#rock');
@@ -45,8 +52,7 @@ scissors.addEventListener('click', () => {
 })
 
 
-// const both = document.createElement('div');
-// both.classList.add('both');
+// how the game runs
 
 function game(playerChoice) {
   if (playerScore === 5 || computerScore === 5) {
@@ -55,36 +61,34 @@ function game(playerChoice) {
   }
 
   let computerSelection = getComputerChoice(arr);
-  // console.log("You chose", playerSelection);
-  // console.log("The computer chose", computerSelection);
+  
   let round = playRound(playerChoice, computerSelection);
 
   roundNumber += 1;
   
   if (round === "win") {
     playerScore += 1;
-
-    console.log("You WON this round! You chose " + playerChoice + "," + " and the computer chose " + computerSelection + ".");
+    result.textContent = 'You won this round!';
   }
   else if (round === "lose") {
     computerScore += 1;
-    console.log("You LOST this round. You chose " + playerChoice + "," + " and the computer chose " + computerSelection + ".");
+    result.textContent = 'You lost this round.';
   }
   else {
-    console.log("You TIED this round. You chose " + playerChoice + "," + " and the computer chose " + computerSelection + ".");
+    result.textContent = 'You tied this round.';
   }
 
+  // places text on UI
   playerTotal.textContent = `YOUR SCORE = ${playerScore}`;
   computerTotal.textContent = `COMPUTER'S SCORE = ${computerScore}`;
   
   rounds.textContent = `Round ${roundNumber}`;
-  bothChoices.textContent = `you chose ${playerChoice} and the computer chose ${computerSelection}`;
-
+  bothChoices.textContent = `You chose ${playerChoice} and the computer chose ${computerSelection}.`;
+  
   if (playerScore === 5 || computerScore === 5) {
     endGame();
   }
 }
-
 //*********************** FUNCTIONS USED ******************************//   
 //makes the click sound when the button is pushed
 
@@ -98,12 +102,15 @@ function sound() {
 function endGame() {
   if (playerScore > computerScore) {
     rounds.textContent = '';
+    result.textContent = '';
     bothChoices.textContent = 'You are the winner, winner, chicken dinner of the game!!!!';
   }
   else {
     rounds.textContent = '';
-    bothChoices.textContent = 'YOU LOST THE GAME SUCKA';
+    result.textContent = '';
+    bothChoices.textContent = 'YOU LOST THE GAME SUCKA!!';
   }
+  
 }
 // Plays one round of Rock, Paper, Scissors //
 
